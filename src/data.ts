@@ -330,6 +330,28 @@ export const pizzas: Products = [
 ];
 
 
+export const singleProduct: Product = {
+  id: 1,
+  title: "Sicilian",
+  desc: "Ignite your taste buds with a fiery combination of spicy pepperoni, jalapeños, crushed red pepper flakes, and melted mozzarella cheese, delivering a kick with every bite.",
+  img: "/temp/p1.png",
+  price: 249,
+  options: [
+    {
+      title: "Small",
+      additionalPrice: 0,
+    },
+    {
+      title: "Medium",
+      additionalPrice: 100,
+    },
+    {
+      title: "Large",
+      additionalPrice: 200,
+    },
+  ],
+};
+
 
 type Menu = {
     id: number;
