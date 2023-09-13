@@ -3,6 +3,7 @@ import { OrderType } from "@/types/types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const OrdersPage = () => {
   const { data: session, status } = useSession();
@@ -40,7 +41,7 @@ const OrdersPage = () => {
     const input = form.elements[0] as HTMLInputElement;
     const status = input.value;
     mutation.mutate({ id, status });
-    console.log(status);
+    toast.success("Order Status has been")
   };
   return (
     <div className="p-4 lg:px-20 xl:px-40">
@@ -56,7 +57,7 @@ const OrdersPage = () => {
         </thead>
         <tbody>
           {data.map((item: OrderType) => (
-            <tr className="text-sm md:text-base bg-red-50" key={item.id}>
+            <tr className={`text-sm md:text-base ${item.status !== "delivered" && "bg-red-50"}`} key={item.id}>
               <td className="hidden md:block py-6 px-1">{item.id}</td>
               <td className="py-6 px-1">
                 {item.createdAt.toString().slice(0, 10)}
