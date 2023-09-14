@@ -18,8 +18,14 @@ const Price = ({product}:{product: ProductType}) => {
       setTotal(
         quantity * product.price + product.options[selected]?.additionalPrice 
       );
+    }else{
+      setTotal(quantity*product.price)
     }
   }, [quantity, selected, product]);
+
+  useEffect(()=>{
+    useCartStore.persist.rehydrate()
+  },[])
 
   const handleCart = () =>{
     addToCart({

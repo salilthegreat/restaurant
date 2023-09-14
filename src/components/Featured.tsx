@@ -33,7 +33,7 @@ const Featured = async() => {
             <div className="flex-1 flex items-center justify-center flex-col text-center gap-4">
               <h1 className="text-xl font-bold uppercase xl:text-2xl 2xl:text-3xl">{item.title}</h1>
               <p className="p-4 2xl:p-8">{item.desc}</p>
-              <span className="text-xl font-bold">₹{item.price * 10}</span>
+              <span className="text-xl font-bold">₹{item.price}</span>
               <button className="bg-red-500 text-white p-2 rounded-md">
                 Add to Cart
               </button>

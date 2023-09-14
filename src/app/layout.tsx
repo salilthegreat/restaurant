@@ -22,11 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <meta
-        name="format-detection"
-        content="telephone=no, date=no, email=no, address=no"
-      />
+    <html lang="en" >
       <body className={inter.className}>
       <AuthProvider>
         <QueryProvider>
