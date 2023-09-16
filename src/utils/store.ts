@@ -2,10 +2,16 @@ import { ActionTypes, CartType } from "@/types/types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export const useCartStore = create(persist<CartType & ActionTypes>((set, get) => ({
+const InitialState = {
     products: [],
     totalItems: 0,
-    totalPrice: 0,
+    totalPrice: 0
+}
+
+export const useCartStore = create(persist<CartType & ActionTypes>((set, get) => ({
+    products: InitialState.products,
+    totalItems: InitialState.totalItems,
+    totalPrice: InitialState.totalPrice,
     addToCart(item) {
         const products = get().products;
         const isAlreadyAdded = products.find((product) => product.id === item.id)
